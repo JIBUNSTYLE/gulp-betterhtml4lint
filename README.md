@@ -1,1 +1,1 @@
-What's BetterHtml4Lint?
+# What's BetterHtml4Lint?

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>test | BetterHTML4Lint</title>
+	<link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+	<link rel="stylesheet" href="css/foundation.css" type="text/css"/>
+	
+	<!--[if lt IE 9]>
+	<script src="../src/js/betterhtml4.js"></script>
+	<![endif]-->
+	<script src="js/vendor/modernizr.js"></script>
+	<script>
+		var xhr = new XMLHttpRequest();
+		xhr.url = 'hoge.dat';
+
+        xhr.open( 'GET', xhr.url, true );
+        
+        xhr.onreadystatechange = function() {
+            if ( xhr.readyState === 4 ){
+                console.log(xhr.url + ': ' + xhr.responseText);
+            }
+        };
+
+        xhr.send( null );
+
+        xhr.url = 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
+        xhr.open( 'GET', xhr.url, true );
+        xhr.send( null );
+
+        xhr.url = 'foo.dat';
+        xhr.open( 'GET', xhr.url, true );
+		xhr.send( null );
+
+		xhr.url = 'bar.dat';
+        xhr.open( 'GET', xhr.url, true );
+		xhr.send( null );
+	</script>
+</head>
+<body>
+	<header>
+			<nav class="top-bar" data-topbar>
+				<section class="top-bar-section">
+					<!-- Left Nav Section -->
+					<ul class="left">
+						<li>
+							<a href="http://www.sg-hldgs.co.jp/" target="_blank">
+								<img src="images/sgholdings.gif" alt="ＳＧホールディングス">
+							</a>
+						</li>
+					</ul>
+					<!-- Right Nav Section -->
+					<ul class="right">
+						<li>
+							<a href="sitemap.html" target="_blank">サイトマップ</a>
+						</li>
+						<li>
+							<a href="http://www.sg-hldgs.co.jp/" target="_blank">
+								<img src="images/sgh_logo.gif" alt="ＳＧホールディングスグループ">
+							</a>
+						</li>						
+					</ul>
+				</section>
+			</nav>
+		</header>
+
+		<!-- サービス本体 -->		
+		<div class="row">
+
+			<!-- 左列 START -->
+			<div class="small-12 medium-6 large-3 columns">
+
+				<!-- ログインエリア START -->
+				<div class="panel callout radius">
+					<h1>共通業務ログイン</h1>
+					<iframe id="ifr" name="ifr" src="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.htm?comp_cd=sagawa-exp" /></iframe>
+				</div>
+				<!-- ログインエリア END -->
+
+				<!-- よく使う機能 START -->
+				<div class="panel callout radius">
+					<ul class="no-bullet">
+						<li><a href="#" class="button [tiny small large] expand radius">グループウェアシステム</a></li>
+						<li><a href="#" class="button [tiny small large] expand radius">メールシステム</a></li>
+						<li><a href="#" class="button [tiny small large] expand radius">ワークフローシステム</a></li>
+						<li><a href="#" class="button [tiny small large] expand radius">文書管理システム</a></li>
+						<li><a href="#" class="button [tiny small large] expand radius">SGHマネジメントシステム</a></li>
+					</ul>
+				</div>
+				<!-- よく使う機能 END -->
+
+				<!-- Works START -->
+				<div class="panel callout radius">
+					<h1>Works</h1>
+					<a href="#" class="button [tiny small large] expand radius">栗和田会長ブログ</a>
+					<a href="#" class="button [tiny small large] expand radius">経営戦略会議</a>
+					<a href="#" class="button [tiny small large] expand radius">汎用掲示板</a>
+				</div>
+				<!-- Works END -->
+
+				
+				<!-- 各社ポータル START -->
+				<div class="panel callout radius hide-for-small hide-for-medium">
+					<a href="#" data-dropdown="pertain-com-drop" class="button [tiny small large] expand dropdown radius">各社ポータル</a>
+					<br/>
+					<ul id="pertain-com-drop" data-dropdown-content class="[small medium content] f-dropdown">
+						<li><a href="#">佐川急便</a></li>
+					</ul>
+				</div>
+				<!-- 各社ポータル END -->
+
+				<div class="panel callout radius hide-for-small hide-for-medium">
+					<!-- 業務システム START -->
+					<a href="#" data-dropdown="business-sys-drop" class="button [tiny small large] expand  dropdown radius">業務システム</a><br/>
+					<ul id="business-sys-drop" data-dropdown-content class="[small medium content] f-dropdown">
+						<li><a href="#" class="tab-none">貨物システム</a></li>
+						<li><a href="#" class="tab-none">勘定システム</a></li>
+						<li><a href="#" class="tab-none">共通マスタシステム</a></li>
+						<li><a href="#" class="tab-none">顧客対応支援システム</a></li>
+						<li><a href="#" class="tab-none">e-quality</a></li>
+						<li><a href="#" class="tab-none">e-コレクトWeb管理システム</a></li>
+						<li><a href="#" class="tab-none">経理現収システム</a></li>
+						<li><a href="#" class="tab-none">会計システム</a></li>
+						<li><a href="#" class="tab-none">経営管理システム(収集ツール)</a></li>
+						<li><a href="#" class="tab-none">経営管理システム(SASFM)</a></li>
+						<li><a href="#" class="tab-none">路線管理システム</a></li>
+						<li><a href="#" class="tab-none">集配傭車管理システム</a></li>
+						<li><a href="#" class="tab-none">飛脚チャーターシステム</a></li>
+						<li><a href="#" class="tab-none">佐川引越チャーター管理システム</a></li>
+						<li><a href="#" class="tab-none">人事ｼｽﾃﾑ/／給与・終業ｼｽﾃﾑ</a></li>
+						<li><a href="#" class="tab-none">運行管理システム</a></li>
+						<li><a href="#">支払連動システム</a></li>
+						<li><a href="#" class="tab-none">購買管理・備品貸与品管理ｼｽﾃﾑ</a></li>
+						<li><a href="#" class="tab-none">調達システム</a></li>
+						<li><a href="#" class="tab-none">廃棄物等管理システム</a></li>
+						<li><a href="#" class="tab-none">制服管理システム</a></li>
+						<li><a href="#">内部通報処理システム</a></li>
+						<li><a href="#">緊急情報システム</a></li>
+						<li><a href="#" class="tab-none">文書作成支援システム</a></li>
+						<li><a href="#" class="tab-none">リスクマネジメントシステム</a></li>
+						<li><a href="#" class="tab-none">e-スキルアップシステム</a></li>
+						<li><a href="#" class="tab-none">e-コンプライアンス</a></li>
+						<li><a href="#" class="tab-none">賞罰管理システム</a></li>
+						<li><a href="#">グループウェアシステム</a></li>
+						<li><a href="#">メールシステム</a></li>
+						<li><a href="#" class="tab-none">Hi-VOXサービスシステム</a></li>
+						<li><a href="#" class="tab-none">XOS複合機器ポータルサイト</a></li>
+					</ul>
+					<!-- 業務システム END -->
+
+					<!-- マニュアル START -->
+					<a href="#" data-dropdown="manual-list-drop" class="button [tiny small large] expand dropdown radius">マニュアル</a><br/>
+					<ul id="manual-list-drop" data-dropdown-content class="[small medium content] f-dropdown">
+						<li><a href="doc/manual/CyberMail_guidelines.pdf" target="_blank">(利用ｶﾞｲﾄﾞﾗｲﾝ)メールシステム</a></li>
+						<li><a href="doc/manual/CyberMail_manual.pdf" target="_blunk">(利用ﾏﾆｭｱﾙ)ﾒｰﾙｼｽﾃﾑ</a></li>
+						<li><a href="#">(利用ﾏﾆｭｱﾙ)ｸﾞﾙｰﾌﾟｳｪｱ</a></li>
+						<li><a href="#">(利用ﾏﾆｭｱﾙ)ﾋﾞﾃﾞｵｶﾝﾌｧﾚﾝｽ(iPad)</a></li>
+						<li><a href="#">(利用ﾏﾆｭｱﾙ)ﾋﾞﾃﾞｵｶﾝﾌｧﾚﾝｽ(PC)</a></li>
+						<li><a href="#">(利用ﾏﾆｭｱﾙ)大容量ﾌｧｲﾙ転送</a></li>
+					</ul>
+					<!-- マニュアル END -->
+
+					<!-- 各社通達・連絡文書 START -->
+					<a href="#" data-dropdown="doc-notification-drop" class="button [tiny small large] expand dropdown radius">各社通達・連絡文書</a><br/>
+					<ul id="doc-notification-drop" data-dropdown-content class="[small medium content] f-dropdown">
+						<li><a href="#">SGHグローバル・ジャパン通達</a></li>
+						<li><a href="#">SGHグローバル・ジャパン通知</a></li>
+						<li><a href="#">佐川ｸﾞﾛｰﾊﾞﾙﾛｼﾞｽﾃｨｸｽ通達</a></li>
+						<li><a href="#">佐川ｸﾞﾛｰﾊﾞﾙﾛｼﾞｽﾃｨｸｽ通知</a></li>
+						<li><a href="#">ＳＧムービング通達</a></li>
+					</ul>
+					<!-- 各社通達・連絡文書 END -->
+				</div>			
+			</div>
+			<!-- 左列 END -->
+
+			<!-- 中央列 START -->
+			<div class="small-12 medium-6 large-6 columns">
+				
+				<!-- 企業理念画像 START -->
+				<div class="panel callout radius hide-for-small hide-for-medium">
+					<embed src="images/flash_main.swf" quality=high bgcolor="#ffffff" width="440" height="330"></embed>
+				</div>
+				<!-- 企業理念画像 END -->
+
+				<!-- INFORMATION START -->
+				<div class="panel callout radius">
+					<h1>INFORMATION</h1>
+					<dl class="expander">
+						<dd>
+							<span class="[success radius] label">お知らせ</span><br/>
+							<p>
+								会長ブログが更新されました！<br/><br/>2014年05月21日<br/>【NEW】タバコについて<br/><br/>詳細は<a href="http://ptlweb.in.sagawa-exp.co.jp/blog/user" target="_blank">こちら</a>からご確認下さい。
+							</p>
+						</dd>
+						<dd>
+							<span class="[success radius] label">お知らせ</span><br/>
+							<p>
+								SGホールディングスグループ経営戦略会議　栗和田会長訓示をアップいたしました。以下よりご確認ください。<br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13534605&wn_seq_no=14617552" target="_blank">・ 栗和田会長訓示</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13534555&wn_seq_no=14594774" target="_blank">・ 関連資料</a><br><br>2012年3月17日開催のSGホールディングスグループ経営戦略会議　栗和田会長訓示をアップいたしました。以下よりご確認ください。<br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13567802&wn_seq_no=14641539" target="_blank">・ 栗和田会長訓示</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13567731&wn_seq_no=14641546" target="_blank">・ 経営戦略会議レジュメ</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13575221&wn_seq_no=14650560" target="_blank">・ 関連資料</a>
+							</p>
+						</dd>
+						<dd>
+							<span class="[success radius] label">お知らせ</span><br/>
+							<p>
+								・【ＳＧホールディングスグループ　ベンチャービジネスグランプリ2014】を開催いたします。<img src="./images/icn_new.gif" alt="NEW"><br><br><br>　　募集期間は5月21日〜8月20日迄、<br>　　事前エントリー（任意）は5月21日〜7月31日迄です。<br><br>　　ビジネスグランプリの説明サイトは<b><u><a href="https://sgh-familink.com/venture/" target="_blank" style="color:red;">こちら</a></u></b>です。<br>　<br>応募にあたっては、�企画書と�メンバー紹介兼登録用紙を『メール』・『宅配便・郵送等での送付』・『投稿サイト（ポータルサイト内）』で受け付けております。<br><br>　　投稿サイトは　<b><u><a href="http://10.10.4.101/BBS/" class="text-blue" target="_blank">こちら</a></u></b>　からになります。<br><br>ご応募お待ちしています。
+							</p>
+						</dd>
+						<dd>
+							<span class="[success radius] label">&lt;連絡&gt;</span><br/>
+							<p>
+								4月28日にマイクロソフトのインターネットエクスプローラーのバージョン6以上全てで発見された脆弱性に関するセキュリティパッチが本日（5月2日）公開されましたので、順次更新を行って参ります。 <br><br>SGHポータルサイトの閲覧など社内システムについては、引き続きインターネットエクスプローラー利用をして頂いて問題ありません。
+							</p>
+						</dd>
+						<dd>
+							<span class="[success radius] label">SG WEBニュース</span><br/>
+							<p>
+								<a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13925867&wn_seq_no=15141220" target="_blank">・ 「SGホールディングスグループ ベンチャービジネスグランプリ2014」募集・受付を開始</a><img src="./images/icn_new.gif" alt="NEW"><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13876440&wn_seq_no=15068982" target="_blank">・ 従業員向け社販サイトにてキティグッズとオリジナルカレーを発売開始！ </a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13869115&wn_seq_no=15091633" target="_blank">・ 「わくわくアワード」受賞チームが決定！</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13660453&wn_seq_no=14772574" target="_blank">・ 羽田空港内大型ビジョンでの佐川急便ＣＭ放送のお知らせ </a><br><br>
+							</p>
+						</dd>
+						<dd>
+							<span class="[success radius] label">SG通達</span><br/>
+							<p>
+								<a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13929075&wn_seq_no=15145613" target="_blank">・ SG第2014／024号 2014/05/21 人事異動通知</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13916914&wn_seq_no=15127634" target="_blank">・ SG第2014／023号 2014/05/20 2014年度第3回SGホールディングスグループ営業推進会議開催について</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13848045&wn_seq_no=15031139" target="_blank">・ SG第2014／022号 2014/05/09 2014年度第2回SGホールディングスグループ管理部門責任者会議 開催の件</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13847853&wn_seq_no=15030882" target="_blank">・ SG第2014／021号 2014/05/09 【退職金・確定拠出年金制度】『確定拠出年金・残高のお知らせ』配付について</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13845384&wn_seq_no=15027052" target="_blank">・ SG第2014／020号 2014/05/09 佐川グローバルロジスティクス株式会社 住所変更の件</a><br><br>
+							</p>
+						</dd>
+						<dd>
+							<span class="[success radius] label">ニュースリリース</span><br/>
+							<p>
+								<a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13868262&wn_seq_no=15057989" target="_blank">・ 【SGホールディングス】 「SGホールディングスグループ自然体験学習（田植え体験）」を実施 </a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13851026&wn_seq_no=15035560" target="_blank">・ 【SGホールディングス】Expolanka Holdings PLC株式取得について </a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13846152&wn_seq_no=15028252" target="_blank">・ 【SGムービング】女性のための引越サービス「レディースムービング」の提供開始</a><br><br><a href="http://wbs.in.sagawa-exp.co.jp/wbs/login_portal.login?wn_site_kbn=20&wn_data_id=13833370&wn_seq_no=15011594" target="_blank">・ 【SGホールディングス】2014年3月期決算発表</a><br><br>
+							</p>
+						</dd>						
+					</dl>
+				</div>
+				<!-- INFOMATION END -->
+			</div>
+			<!-- 中央列 END -->
+
+			<!-- 右列 START -->
+			<div class="small-12 medium-12 large-3 columns">
+
+				<!-- スポーツインフォメーション START-->
+				<div class="panel callout radius hide-for-small hide-for-medium">
+					<h1>オフィシャルスポーツ<br/>インフォメーション</h1>
+					<h2><a href="http://www.sagawa-softball.jp/index.html" target="_blank">ソフトボール部</a></h2>
+					<ul>
+						<li><a id="sfball_result" href="http://www.sagawa-softball.jp/result/index.html" target="_blank">競技結果を掲載（05/13）</a></li>
+						<li><a id="sfball_league" href="http://www.sagawa-softball.jp/schedule/index.html" onClick="javascript:_gaq.push(['_trackPageview', '/www.sagawa-softball.jp/schedule/index.html']);" target="_blank">5月17日（土）〜18日（日）第47回日本女子1部リーグ第3節開催！（栃木県）</a></li>
+					</ul>
+					<h2><a href="http://www.sagawa-trackfield.jp/index.html" target="_blank">陸上競技部</a></h2>
+					<ul>
+						<li><a id="ftevent_result" href="http://www.sagawa-trackfield.jp/result/index.html" target="_blank">競技結果を掲載（05/13）</a></li>
+						<li><a id="ftevent_competition" href="http://www.sagawa-trackfield.jp/schedule/index.html" target="_blank">5月16日（金）〜18日（日）関西実業団陸上競技選手権大会開催！（大阪府）</a><br><a id="ftevent_run" href="http://www.sagawa-trackfield.jp/schedule/index.html" target="_blank">5月18日（日）ラトビアリガ国際マラソン開催！（ラトビア共和国）</a></li>
+					</ul>
+				</div>
+				<!-- スポーツインフォメーション END -->
+
+				<!-- リンク集 START -->				
+				<div class="panel callout radius">
+					<h1>リンク集</h1>
+					<ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-1">
+						<li>
+		 					<a href="https://sgh-familink.com/" target="_blank"><img src="images/banner_familink.gif" alt="ＳＧホールディングスグループ 会社と社員・家族をつなぐサイト　ふぁみりんく"></a>
+						</li>
+						<li>
+		 					<a href="https://enavi.dcj-net.co.jp/app/topm/NrkLoginDspSG?auto=0055788733dcj" target="_blank"><img src="images/banner_kakuteinennkin.gif" alt="確定拠出年金サイト"></a>
+						</li>
+						<li>
+		 					<a href="http://10.10.4.101/BBS/" target="_blank"><img src="images/banner_sgnet.gif" alt="Sg-Netマッチング　情報投稿掲示板"></a>
+						</li>
+						<li>
+							<a href="javascript:pop_kyoukun();">
+								<img src="images/banner_kyoukun.gif" alt="教訓サイト">
+	 						</a>
+						</li>
+					</ul>
+					<ul class="medium-block-grid-4 large-block-grid-1">
+						<li>
+		 					<a href="http://synergy.in.sagawa-exp.co.jp/osms/web/mng/Login.html" target="_blank"><img src="images/banner_osms.gif" alt="『グループの力』　グループ紹介案件管理システム"></a>
+						</li>
+						<li>
+							<a href="https://sgh-familink.com/wwpj/" target="_blank"><img src="images/banner_wwpj.gif" alt="わくわくウィメンズプロジェクト　イキイキと活躍する“輝き女子”になろう！"></a>
+						</li>
+					</ul>
+				</div>
+				<!-- リンク集 END -->
+
+				<!-- 各社ホームページ START -->
+				<div class="panel callout radius">
+					<h1>各社ホームページ</h1>
+					<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-1">
+						<li>
+							<a href="#" data-dropdown="domestic-corp-drop" class="button [tiny small large] expand dropdown radius">国内法人</a><br>
+							<ul id="domestic-corp-drop" data-dropdown-content class="[small medium content] f-dropdown">
+								<li><a href="http://www.sg-hldgs.co.jp/" target="_blank">ＳＧホールディングス</a> </li>
+								<li><a href="http://www.sagawa-exp.co.jp/" target="_blunk">佐川急便</a></li>
+								<li><a href="#">ＳＧムービング</a></li>
+								<li><a href="#">ワールドサプライ</a></li>
+								<li><a href="#">佐川グローバルロジスティクス</a></li>
+								<li><a href="#">SGHグローバル・ジャパン</a></li>
+								<li><a href="#">佐川アドバンス</a></li>
+								<li><a href="#">ＳＧモータース</a></li>
+								<li><a href="#">ＳＧシステム</a></li>
+								<li><a href="#">佐川フィナンシャル</a></li>
+								<li><a href="#">ＳＧリアリティ</a></li>
+								<li><a href="#">ＳＧフィルダー</a></li>
+								<li><a href="#">ヌーヴェルゴルフ倶楽部</a></li>
+								<li><a href="#">佐川林業</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" data-dropdown="overseas-corp-drop" class="button [tiny small large] expand dropdown radius" >海外法人</a><br>
+							<ul id="overseas-corp-drop" data-dropdown-content class="[small medium content] f-dropdown">
+								<li><a href="http://sghg-sg.com/" target="_blunk">SG HOLDINGS GLOBAL PTE. LTD.</a></li>
+								<li><a href="#">佐川喜楽客思物流（上海）有限公司</a></li>
+								<li><a href="#">上海大衆佐川急便物流有限公司</a></li>
+								<li><a href="#">上海保利佐川物流有限公司</a></li>
+								<li><a href="#">台湾佐川急便国際股ブン有限公司</a></li>
+								<li><a href="#">佐川急便（香港）有限公司</a></li>
+								<li><a href="#">佐川急便タイ・コンテナ・ディストリビューション・サービス株式会社</a></li>
+								<li><a href="#">佐川急便ベトナム有限会社</a></li>
+								<li><a href="#">佐川急便ベトナム有限会社</a></li>
+								<li><a href="#">佐川急便シンガポール株式会社</a></li>
+								<li><a href="#">AMEROID LOGISTICS(S) PTE. LTD.</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" data-dropdown="other-corp-drop" class="button [tiny small large] expand dropdown radius">財団法人・外郭法人</a>
+							<ul id="other-corp-drop" data-dropdown-content class="[small content] f-dropdown">
+								<li>財団法人
+									<ul>
+										<li><a href="http://www.sagawa-ryugakusei.or.jp/" target="_blunk">佐川留学生奨学財団</a></li>
+										<li><a href="#">佐川国際経済協力会</a></li>
+										<li><a href="#">佐川がん研究振興材財団</a></li>
+										<li><a href="#">佐川美術館</a></li>
+									</ul>
+								</li>
+								<li>外郭団体
+									<ul><li><a href="http://www.kenpo.gr.jp/sgh/" target="_blunk">健康保険組合</a></li></ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- 各社ホームページ END -->
+
+				<!-- 各会社案内 START -->
+				<div class="panel callout radius hide-for-small hide-for-medium">
+					<h1>各会社案内</h1>
+					<a href="#" data-dropdown="notice-com-drop" class="button [tiny small large] expand dropdown radius" >会社選択</a><br>
+					<ul id="notice-com-drop" data-dropdown-content class="[small medium content] f-dropdown">
+						<li>佐川急便
+							<ul>
+								<li><a href="doc/companyinfo_sagawa_jp.pdf" target="_blunk">日本語</a></li>
+								<li><a href="#">カバー注文書ダウンロード</a></li>
+							</ul>
+						</li>
+						<li>佐川グローバルロジスティクス
+							<ul>
+								<li><a href="#">日本語</a></li>
+								<li><a href="#">英語</a></li>
+								<li><a href="#">中国語</a></li>
+							</ul>
+						</li>
+						<li><a href="#">ＳＧモータース</a></li>
+						<li><a href="#">ＳＧシステム</a></li>
+					</ul>
+				</div>
+				<!-- 各会社案内 END -->
+
+				<!-- お役立ちリンク START -->
+				<div class="panel callout radius hide-for-small hide-for-medium">
+					<h1>お役立ちリンク</h1>
+					<ul>
+						<li>情報
+							<ul>
+								<li><a href="http://weather.yahoo.co.jp/weather/" target="_blunk">天気予報</a></li>
+								<li><a href="#">地震情報</a></li>
+								<li><a href="#">台風情報</a></li>
+								<li><a href="#">渋滞情報</a></li>
+							</ul>
+						</li>
+						<li>新聞
+							<ul>
+								<li><a href="http://www.nikkei.co.jp/" target="_blunk">日本経済新聞</a></li>
+								<li><a href="#">朝日新聞</a></li>
+								<li><a href="#">読売新聞</a></li>
+							</ul>
+						</li>
+						<li>出張・外出
+							<ul>
+								<li><a href="#">鉄道[経路][料金]検索</a></li>
+								<li><a href="#">旅の窓口</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- お役立ちリンク END -->
+
+				<!-- Google START -->
+				<div class="panel callout radius hide-for-small hide-for-medium">
+					<form method=get action="http://www.google.co.jp/search" target="_blank">
+						<label>
+      						<h1>▼Google検索</h1>
+							<input type="text" name="q" size="20" maxlength="255" value="" placeholder="文字列を入力して下さい...">
+							<input type="hidden" name="ie" value="Shift_JIS">
+							<input type="hidden" name="oe" value="Shift_JIS">
+							<input type="hidden" name="hl" value="ja">
+							<input class="tiny button callout radius" type="submit" name="btnG" value="検索">
+						</label>
+					</form>
+				</div>
+				<!-- Google END -->
+
+			</div>
+			<!-- 右列 END -->
+		</div>
+
+		<!-- フッター -->
+		<footer>
+			<p class="text-center">&copy; SG Holdings Co.,Ltd.</p>
+		</footer>
+	<script src="../dist/js/jquery.js"></script>
+	<script src="js/foundation/foundation.js"></script>
+	<script src="js/foundation/foundation.dropdown.js"></script>
+	<script src="js/foundation/foundation.accordion.js"></script>
+	<script src="js/test.js"></script>
+</body>
+</html>
