@@ -1,26 +1,156 @@
-/*
- *	@See http://qiita.com/morou/items/1297d5dd379ef013d46c
- *	@See https://github.com/spenceralger/gulp-jshint/blob/master/src/index.js
- *
-var gutil    = require('gulp-util');
-var through  = require('through2');
+var gutil = require('gulp-util');
+var through = require('through2');
 
-module.exports = function(arg) {
+// 定数
+const PLUGIN_NAME = 'gulp-betterhtml4lint:';
+
+var betterHtml4 = {};
+
+betterHtml4.checkHtml = function(arg) {
+
+	var ngwords = {};
+
+	function chechHtml(file, html){
+		var ret = checkHtmlDeprecatedTag(html);
+
+		if ( !isEmpty(ret) ) {
+			ngwords[file.path] = ret;
+		}
+
+		ret = checkHtmlUnspportedTag(html);
+		if ( !isEmpty(ret) ) {
+			ngwords[file.path] = ret;
+		}
+
+		ret = checkHtmlDeprecatedAttribute(html);
+		if ( !isEmpty(ret) ) {
+			ngwords[file.path] = ret;
+		}
+	};
 
 	function transform(file, encoding, callback){
 
-		callback();
+		// ファイルがnullの場合
+		if (file.isNull()) {
+			// 次のプラグインに処理を渡す
+			this.push(file);
+			// callback()は必ず実行
+			return callback();
+		}
+
+		if (file.isBuffer()) {
+			chechHtml(file, file.contents.toString());
+			this.push(file);
+			return callback();
+		}
+
+		if (file.isStream()) {
+			var buff = '';
+			var _self = this;
+			stream.on('data', function (chunk) {
+					buff += chunk;
+				})
+				.on('end', function () {
+					chechHtml(file, buff.contents.toString());
+					_self.push(file);
+					callback();
+				})
+				.on('error', function (error) {
+					_self.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming Error'));
+				});
+		}
 	}
 
 	function flush(callback){
-		callback();
+		if ( !isEmpty(ngwords) ) {
+			gutil.log(PLUGIN_NAME, ngwords);
+		}
+		return callback();
 	}
 
-	var th2 = through2.obj(transform, flush);
-	return th2;
+	var stream = through.obj(transform, flush);
+	return stream;
 };
-*/
 
+betterHtml4.checkCss = function(arg) {
+
+	var ngwords = {};
+
+	function checkCss(file, html){
+		var ret = checkCssUnsupportedProperty(html);
+		if ( !isEmpty(ret) ) {
+			ngwords[file.path] = ret;
+		}
+
+		ret = checkCssUnsupportedValue(html);
+		if ( !isEmpty(ret) ) {
+			ngwords[file.path] = ret;
+		}
+	};
+
+	function transform(file, encoding, callback){
+
+		// ファイルがnullの場合
+		if (file.isNull()) {
+			// 次のプラグインに処理を渡す
+			this.push(file);
+			// callback()は必ず実行
+			return callback();
+		}
+
+		if (file.isBuffer()) {
+			checkCss(file, file.contents.toString());
+			this.push(file);
+			return callback();
+		}
+
+		if (file.isStream()) {
+			var buff = '';
+			var _self = this;
+			stream.on('data', function (chunk) {
+					buff += chunk;
+				})
+				.on('end', function () {
+					checkCss(file, buff.contents.toString());
+					_self.push(file);
+					callback();
+				})
+				.on('error', function (error) {
+					_self.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming Error'));
+				});
+		}
+	}
+
+	function flush(callback){
+		if ( !isEmpty(ngwords) ) {
+			gutil.log(PLUGIN_NAME, ngwords);
+		}
+		return callback();
+	}
+
+	var stream = through.obj(transform, flush);
+	return stream;
+};
+
+function isEmpty(obj) {
+
+    // null and undefined are "empty"
+    if (obj == null) return true;
+
+    // Assume if it has a length property with a non-zero value
+    // that that property is correct.
+    if (obj.length > 0)    return false;
+    if (obj.length === 0)  return true;
+
+    // Otherwise, does it have any properties of its own?
+    // Note that this doesn't handle
+    // toString and valueOf enumeration bugs in IE < 9
+    for (var key in obj) {
+        if (hasOwnProperty.call(obj, key)) return false;
+    }
+
+    return true;
+}
 
 /**
  *	HTMLファイル中にHTML5で廃止されたタグがないかチェックします。
@@ -154,5 +284,9 @@ var _hasCssUnsupportedValue = function(line) {
 
 	return false;
 };
+
+
+// プラグイン関数をエクスポート
+module.exports = betterHtml4;
 
 
